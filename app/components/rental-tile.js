@@ -2,12 +2,16 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   isImageShowing: false,
+  updateRentalForm: false,
   actions: {
-    imageShow: function() {
+    imageShow() {
       this.set('isImageShowing', true);
     },
-    imageHide: function() {
+    imageHide() {
       this.set('isImageShowing', false);
+    },
+    update(rental,params) {
+      this.sendAction('update', rental, params);
     },
     delete(rental) {
       if (confirm('really man?')) {
